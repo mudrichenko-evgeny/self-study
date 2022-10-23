@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_primary">#FFFFFFFF</color>
+    <color name="background_secondary">#FFF3F4F6</color>
+    <color name="background_accent">#FF202022</color>
+
+    <color name="on_background_primary">#FF000000</color>
+    <color name="on_background_secondary">#FF8B8B8B</color>
+    <color name="on_background_accent">#FFFFFFFF</color>
+
+    <color name="ripple">@color/on_background_secondary</color>
+
+    <color name="positive">#289C25</color>
+    <color name="negative">#9C2525</color>
+    <color name="neutral">#2E3E77</color>
+</resources>

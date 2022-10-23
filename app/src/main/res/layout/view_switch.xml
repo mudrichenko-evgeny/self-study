@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_rectangle">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_items"
+            style="@style/TextPrimary"
+            android:background="@null"
+            android:clickable="false"
+            tools:visibility="visible"/>
+
+    </FrameLayout>
+
+</layout>

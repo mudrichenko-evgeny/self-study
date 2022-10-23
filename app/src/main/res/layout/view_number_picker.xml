@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/padding_screen"/>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+            android:id="@+id/question_count_minus"
+            android:layout_width="@dimen/circle_button_small_size"
+            android:layout_height="@dimen/circle_button_small_size"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@+id/question_count_edit_text"
+            android:layout_marginEnd="@dimen/padding_screen"
+            style="@style/ButtonCircle"
+            android:src="@drawable/ic_remove"/>
+
+        <EditText
+            android:id="@+id/question_count_edit_text"
+            android:layout_width="@dimen/text_input_small_width"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:inputType="number"
+            style="@style/TextInputCenter"
+            tools:hint="@string/mock_text_number"/>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+            android:id="@+id/question_count_plus"
+            android:layout_width="@dimen/circle_button_small_size"
+            android:layout_height="@dimen/circle_button_small_size"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toEndOf="@+id/question_count_edit_text"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            android:layout_marginStart="@dimen/padding_screen"
+            style="@style/ButtonCircle"
+            android:src="@drawable/ic_add"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

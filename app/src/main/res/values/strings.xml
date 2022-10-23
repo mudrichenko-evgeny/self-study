@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Self-study</string>
+
+    <string name="quiz_packs">Packs</string>
+    <string name="home">Home</string>
+
+    <string name="question">Question</string>
+    <string name="statistics">Statistics</string>
+
+    <string name="answer">Answer</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <string name="wrong">Wrong</string>
+    <string name="correct">Correct</string>
+    <string name="correct_answer">\n\nCorrect answer:\u0020</string>
+    <string name="your_answer">Your answer:\u0020</string>
+
+    <string name="quiz_no_questions_description">Pack with questions not found.
+        Need to download the question pack</string>
+
+    <string name="finish_quiz_title">Finish quiz</string>
+    <string name="finish_quiz_description">Are you sure you want to finish the quiz?</string>
+    <string name="finish">Finish</string>
+
+    <string name="help_quiz_title">Start new quiz</string>
+    <string name="help_quiz_description">Select the number of questions and start the quiz</string>
+
+    <string name="delete_quiz_title">Delete question pack</string>
+    <string name="delete_quiz_description">Are you sure you want to delete the \"%s\" question pack?</string>
+
+    <string name="enter_answer">Enter answer</string>
+    <string name="enter_pack_name">Enter pack name</string>
+    <string name="pack_name">Pack name</string>
+    <string name="set_name">Set name</string>
+
+    <string name="clear_statistics_warning">Are you sure you want to clear the statistics?</string>
+
+    <string name="progress_data">%d/%d</string>
+    <string name="prefer_difficult_questions">Prefer difficult questions</string>
+    <string name="random_questions">Random questions</string>
+
+    <string name="quiz_completed">Quiz completed</string>
+    <string name="quiz_statistics">Number of questions: %d\nCorrect answers: %d</string>
+
+    <string name="how_to_add_pack">How to add your own pack</string>
+    <string name="quiz_packs_help">You can add your own pack. Click "+" button and pick pack file
+        from phone file system. Supported file format: .csv. File must be with correct structure:
+        \nFirst Row: \"question\"\nSecond Row: \"answer\"</string>
+
+    <string name="player_state_no_audio">No audio</string>
+    <string name="player_state_audio_available">%s/%s</string>
+    <string name="player_state_recording">Recording… %s</string>
+</resources>

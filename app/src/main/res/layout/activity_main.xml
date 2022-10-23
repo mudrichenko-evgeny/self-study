@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mudrichenko.evgeniy.selfstudy.ui.screen.main.MainActivityViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainActivityRootLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_primary">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/navHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph_main" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/navHostFragment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/BottomNavigation"
+                app:menu="@menu/menu_bottom_navigation" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.progress.ProgressView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Progress"
+            app:visibleOrGone="@{viewModel.isLoading()}"
+            tools:visibility="gone" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/overlay_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+
+    </FrameLayout>
+
+</layout>

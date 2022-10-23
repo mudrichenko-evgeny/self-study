@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_quiz_packs"
+    app:startDestination="@id/quizPacksFragment">
+
+    <fragment
+        android:id="@+id/quizPacksFragment"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.quiz_packs.QuizPacksFragment"
+        tools:layout="@layout/fragment_quiz_packs">
+
+        <action
+            android:id="@+id/navigateToQuestionPackEdit"
+            app:destination="@+id/questionPackEdit" />
+
+        <action
+            android:id="@+id/navigateToStatistics"
+            app:destination="@+id/statistics" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/questionPackEdit"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.question_pack_edit.QuestionPackEditFragment"
+        tools:layout="@layout/fragment_question_pack_edit">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/statistics"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.statistics.StatisticsFragment"
+        tools:layout="@layout/fragment_statistics">
+
+    </fragment>
+
+</navigation>

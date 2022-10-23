@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/nav_graph_home">
+
+    <include app:graph="@navigation/nav_graph_home" />
+
+    <include app:graph="@navigation/nav_graph_quiz_packs" />
+
+    <action
+        android:id="@+id/showEditQuestionDialog"
+        app:destination="@+id/editQuestionDialog" />
+
+    <dialog
+        android:id="@+id/editQuestionDialog"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.edit_question.EditQuestionBottomSheetDialog"
+        tools:layout="@layout/dialog_edit_question">
+        <argument
+            android:name="quizPackId"
+            app:argType="long"/>
+        <argument
+            android:name="questionId"
+            app:argType="long"/>
+    </dialog>
+
+    <action
+        android:id="@+id/showQuestionStatisticsDialog"
+        app:destination="@+id/questionStatisticsDialog" />
+
+    <dialog
+        android:id="@+id/questionStatisticsDialog"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.question_statistics.QuestionStatisticsBottomSheetDialog"
+        tools:layout="@layout/dialog_question_statistics">
+        <argument
+            android:name="questionId"
+            app:argType="long"/>
+    </dialog>
+
+    <action
+        android:id="@+id/showConfirmationDialog"
+        app:destination="@+id/confirmationDialog" />
+
+    <dialog
+        android:id="@+id/confirmationDialog"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.alert_dialog.alert.AlertDialog"
+        tools:layout="@layout/dialog_alert">
+        <argument
+            android:name="titleText"
+            app:argType="string" />
+        <argument
+            android:name="descriptionText"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="cancelButtonText"
+            app:argType="string" />
+        <argument
+            android:name="confirmButtonText"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="extraData"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+
+    <action
+        android:id="@+id/showTextInputDialog"
+        app:destination="@+id/textInputDialog" />
+
+    <dialog
+        android:id="@+id/textInputDialog"
+        android:name="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.text_input.TextInputBottomSheetDialog"
+        tools:layout="@layout/dialog_text_input">
+        <argument
+            android:name="titleText"
+            app:argType="string" />
+        <argument
+            android:name="textContent"
+            app:argType="string" />
+        <argument
+            android:name="contentCanBeEmpty"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="hintText"
+            app:argType="string" />
+        <argument
+            android:name="confirmButtonText"
+            app:argType="string" />
+        <argument
+            android:name="extraData"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+
+</navigation>

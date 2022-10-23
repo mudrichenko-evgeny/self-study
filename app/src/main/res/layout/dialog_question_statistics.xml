@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.question_statistics.QuestionStatisticsBottomSheetDialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/padding_screen"/>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.app_scroll_view.AppScrollView
+            android:id="@+id/content_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_top"
+            app:layout_constraintBottom_toTopOf="@+id/statistics_text_view"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end">
+
+            <TextView
+                android:id="@+id/content_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextPrimaryCenter"
+                app:infoTextQuestion="@{viewModel.question}"
+                tools:text="@string/mock_text_large"/>
+
+        </com.mudrichenko.evgeniy.selfstudy.ui.custom_view.app_scroll_view.AppScrollView>
+
+        <TextView
+            android:id="@+id/statistics_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/content_scroll_view"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            android:layout_marginTop="@dimen/padding_items"
+            style="@style/TextPrimaryCenter"
+            android:text="@{viewModel.question.getStatisticText()}"
+            tools:text="@string/mock_text_small"/>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.rectangle_button.RectangleButton
+            android:id="@+id/close_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/statistics_text_view"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            android:layout_marginTop="@dimen/padding_items"
+            style="@style/ButtonRectangle"
+            android:text="@string/close" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

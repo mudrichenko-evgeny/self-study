@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="enabledBackgroundColorRes" format="color" />
+    <attr name="disabledBackgroundColorRes" format="color" />
+    <attr name="enabledImageColorRes" format="color" />
+    <attr name="disabledImageColorRes" format="color" />
+    <attr name="backgroundColor" format="color" />
+    <attr name="progressColor" format="color" />
+
+    <declare-styleable name="PieChartView">
+        <attr name="sum" format="float" />
+        <attr name="progress" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="AudioRecorderView">
+        <attr name="deleteAudioAvailable" format="boolean" />
+        <attr name="loadingAnimationAvailable" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressView">
+        <attr name="backgroundColor" />
+        <attr name="progressColor" />
+    </declare-styleable>
+
+    <declare-styleable name="LinearProgressBarView">
+        <attr name="backgroundColor" />
+        <attr name="progressColor" />
+        <attr name="textVisible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchView">
+        <attr name="accentColor" format="color" />
+        <attr name="primaryColor" format="color" />
+        <attr name="secondaryColor" format="color" />
+        <attr name="trackColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleButton">
+        <attr name="enabledBackgroundColorRes" />
+        <attr name="disabledBackgroundColorRes" />
+        <attr name="enabledImageColorRes" />
+        <attr name="disabledImageColorRes" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleButtonStroke">
+        <attr name="enabledBackgroundColorRes" />
+        <attr name="disabledBackgroundColorRes" />
+        <attr name="enabledImageColorRes" />
+        <attr name="disabledImageColorRes" />
+        <attr name="strokeBackgroundColorRes" format="color" />
+        <attr name="imageDrawableRes" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RectangleButton">
+        <attr name="enabledBackgroundColorRes" />
+        <attr name="disabledBackgroundColorRes" />
+        <attr name="enabledTextColorRes" format="color" />
+        <attr name="disabledTextColorRes" format="color" />
+    </declare-styleable>
+
+</resources>

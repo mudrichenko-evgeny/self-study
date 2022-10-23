@@ -1,0 +1,11 @@
+<resources>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_no_file">No file</string>
+    <string name="error_file_convert">File error</string>
+    <string name="error_question_pack">Wrong csv file content</string>
+    <string name="error_edit_question_pack">Can`t save data</string>
+    <string name="error_question_edit">Error: can`t edit question</string>
+    <string name="error_no_data">No data</string>
+    <string name="error_permissions_not_granted">Permissions not granted</string>
+    <string name="error_cannot_be_empty">Can not be empty!</string>
+</resources>

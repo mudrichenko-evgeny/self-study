@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.edit_question.EditQuestionBottomSheetDialogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/padding_screen"/>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.text_input.TextInputView
+            android:id="@+id/content_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/guideline_top"
+            app:layout_constraintBottom_toTopOf="@+id/answer_edit_text"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            style="@style/TextInput"
+            android:hint="@string/question"
+            android:text="@={viewModel.questionContent}" />
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.text_input.TextInputView
+            android:id="@+id/answer_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/content_edit_text"
+            app:layout_constraintBottom_toTopOf="@+id/barrier_bottom_buttons"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            android:layout_marginTop="@dimen/padding_items"
+            android:layout_marginBottom="@dimen/padding_items"
+            style="@style/TextInput"
+            android:hint="@string/answer"
+            android:text="@={viewModel.questionAnswer}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_bottom_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="delete_button, save_button"
+            app:barrierDirection="top"/>
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.rectangle_button.RectangleButton
+            android:id="@+id/delete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@+id/save_button"
+            android:layout_marginEnd="@dimen/padding_items"
+            style="@style/ButtonRectangle"
+            android:text="@string/delete"
+            android:onClick="@{() -> viewModel.onDeleteClicked()}" />
+
+        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.rectangle_button.RectangleButton
+            android:id="@+id/save_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            app:layout_constraintStart_toEndOf="@+id/delete_button"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            android:layout_marginStart="@dimen/padding_items"
+            style="@style/ButtonRectangle"
+            android:text="@string/save"
+            android:onClick="@{() -> viewModel.onSaveClicked()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
