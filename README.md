@@ -34,6 +34,3 @@ UI layer (activity, fragments, dialogs)
 - <p><a href="https://github.com/doyaaaaaken/kotlin-csv">Kotlin-csv library</a> for work with csv files;</p>
 - Gson serialization/deserialization library;
 - AndroidX SplashScreen library.
-
-# Downloads
-Zip archive with apk file: [self-study 1.0 [1].zip](https://github.com/mudrichenko-evgeny/self-study/files/9847078/self-study.1.0.1.zip)
