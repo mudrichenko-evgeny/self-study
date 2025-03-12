@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.screen.question_pack_edit.QuestionPackEditViewModel" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.screen.question_pack_edit.QuestionPackEditViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/back_button"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"
@@ -42,7 +42,7 @@
             android:text="@{viewModel.quizPack.name}"
             tools:text="@string/mock_text_small"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/edit_name_button"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"

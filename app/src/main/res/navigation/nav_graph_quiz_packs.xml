@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/quizPacksFragment"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.quiz_packs.QuizPacksFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.quiz_packs.QuizPacksFragment"
         tools:layout="@layout/fragment_quiz_packs">
 
         <action
@@ -22,14 +22,14 @@
 
     <fragment
         android:id="@+id/questionPackEdit"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.question_pack_edit.QuestionPackEditFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.question_pack_edit.QuestionPackEditFragment"
         tools:layout="@layout/fragment_question_pack_edit">
 
     </fragment>
 
     <fragment
         android:id="@+id/statistics"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.statistics.StatisticsFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.statistics.StatisticsFragment"
         tools:layout="@layout/fragment_statistics">
 
     </fragment>

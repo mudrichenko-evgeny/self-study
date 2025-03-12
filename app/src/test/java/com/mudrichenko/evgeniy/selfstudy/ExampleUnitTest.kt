@@ -1,4 +1,4 @@
-package com.mudrichenko.evgeniy.selfstudy
+package com.mudrichenkoevgeny.selfstudy
 
 import org.junit.Test
 

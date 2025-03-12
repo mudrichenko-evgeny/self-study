@@ -1,12 +1,12 @@
 object ApplicationConfig {
-    const val applicationId = "com.mudrichenko.evgeniy.selfstudy"
+    const val applicationId = "com.mudrichenkoevgeny.selfstudy"
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val jvmTarget = "1.8"
 
     object Sdk {
-        const val compile = 33
+        const val compile = 35
         const val min = 26
-        const val target = 32
+        const val target = 35
     }
 
     object Version {

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.alert_dialog.alert.AlertDialogViewModel" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.alert_dialog.alert.AlertDialogViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -77,7 +77,7 @@
             app:barrierMargin="@dimen/padding_screen"
             app:constraint_referenced_ids="description_text_view"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.rectangle_button.RectangleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.rectangle_button.RectangleButton
             android:id="@+id/cancel_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             visibleOrGone="@{!viewModel.confirmButtonText.empty}"
             tools:visibility="visible"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.rectangle_button.RectangleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.rectangle_button.RectangleButton
             android:id="@+id/confirm_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

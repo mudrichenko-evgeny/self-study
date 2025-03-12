@@ -8,6 +8,7 @@ plugins {
 }
 
 android {
+    namespace = "com.mudrichenkoevgeny.selfstudy"
     val appVersionCode = ApplicationConfig.Version.code
     val appVersionNumber = ApplicationConfig.Version.number
 
@@ -55,10 +56,6 @@ android {
 
     buildFeatures {
         dataBinding = true
-    }
-
-    packagingOptions {
-        resources.excludes.add("META-INF/*")
     }
 }
 

@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="LockedOrientationActivity"
-    package="com.mudrichenko.evgeniy.selfstudy">
+    package="com.mudrichenkoevgeny.selfstudy">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
-        android:name="com.mudrichenko.evgeniy.selfstudy.App"
+        android:name="com.mudrichenkoevgeny.selfstudy.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
         tools:targetApi="31" >
 
         <activity
-            android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.main.MainActivity"
+            android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.main.MainActivity"
             android:theme="@style/Theme.App.Starting"
             android:screenOrientation="portrait"
             android:exported="true"

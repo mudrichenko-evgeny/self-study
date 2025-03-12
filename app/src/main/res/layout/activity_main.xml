@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.screen.main.MainActivityViewModel" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.screen.main.MainActivityViewModel" />
     </data>
 
     <FrameLayout
@@ -41,7 +41,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.progress.ProgressView
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.progress.ProgressView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             style="@style/Progress"

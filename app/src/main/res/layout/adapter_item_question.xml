@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.adapter.question.QuestionAdapterItemVM" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.adapter.question.QuestionAdapterItemVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +44,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/padding_items"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/edit_button"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"
@@ -55,7 +55,7 @@
             style="@style/ButtonCircle"
             android:src="@drawable/ic_edit"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.expandable_text_view.ExpandableTextView
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.expandable_text_view.ExpandableTextView
             android:id="@+id/question_info_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

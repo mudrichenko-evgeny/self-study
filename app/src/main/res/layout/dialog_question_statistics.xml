@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.question_statistics.QuestionStatisticsBottomSheetDialogViewModel" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.bottom_sheet_dialog.question_statistics.QuestionStatisticsBottomSheetDialogViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +42,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/padding_screen"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.app_scroll_view.AppScrollView
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.app_scroll_view.AppScrollView
             android:id="@+id/content_scroll_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 app:infoTextQuestion="@{viewModel.question}"
                 tools:text="@string/mock_text_large"/>
 
-        </com.mudrichenko.evgeniy.selfstudy.ui.custom_view.app_scroll_view.AppScrollView>
+        </com.mudrichenkoevgeny.selfstudy.ui.custom_view.app_scroll_view.AppScrollView>
 
         <TextView
             android:id="@+id/statistics_text_view"
@@ -73,7 +73,7 @@
             android:text="@{viewModel.question.getStatisticText()}"
             tools:text="@string/mock_text_small"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.rectangle_button.RectangleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.rectangle_button.RectangleButton
             android:id="@+id/close_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -36,14 +36,14 @@ object Dependencies {
 
     object Versions {
         // Core
-        const val buildGradle = "7.3.1"
-        const val kotlinGradle = "1.6.20"
+        const val buildGradle = "8.7.0"
+        const val kotlinGradle = "1.9.23"
         // AndroidX
-        const val ktxCore = "1.9.0"
+        const val ktxCore = "1.15.0"
         const val appcompat = "1.5.1"
         const val splashScreen = "1.0.0"
-        const val navigation = "2.6.0-alpha02"
-        const val room = "2.4.3"
+        const val navigation = "2.8.8"
+        const val room = "2.6.1"
         // Google
         const val material = "1.7.0"
         const val gson = "2.9.0"

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.home.HomeFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.home.HomeFragment"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/quizFragment"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.quiz.QuizFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.quiz.QuizFragment"
         tools:layout="@layout/fragment_quiz">
 
         <!--<action
@@ -51,7 +51,7 @@
 
     <fragment
         android:id="@+id/checkAnswerFragment"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.check_answer.CheckAnswerFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.check_answer.CheckAnswerFragment"
         tools:layout="@layout/fragment_check_answer">
 
         <argument
@@ -78,7 +78,7 @@
 
     <fragment
         android:id="@+id/quizCompletedFragment"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.screen.quiz_completed.QuizCompletedFragment"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.screen.quiz_completed.QuizCompletedFragment"
         tools:layout="@layout/fragment_quiz_completed">
 
         <action

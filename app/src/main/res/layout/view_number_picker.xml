@@ -35,7 +35,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/padding_screen"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/question_count_minus"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"
@@ -59,7 +59,7 @@
             style="@style/TextInputCenter"
             tools:hint="@string/mock_text_number"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/question_count_plus"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.screen.statistics.StatisticsViewModel" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.screen.statistics.StatisticsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/back_button"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"
@@ -41,7 +41,7 @@
             style="@style/TextAccent"
             android:text="@string/statistics"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/sort_button"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"
@@ -86,7 +86,7 @@
             style="@style/FloatingActionButton"
             android:src="@drawable/ic_delete" />
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.progress.ProgressView
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.progress.ProgressView
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"

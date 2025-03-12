@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/background_circle">
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.circle_button.CircleButton
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.circle_button.CircleButton
             android:id="@+id/circle_button"
             android:layout_width="0dp"
             android:layout_height="0dp"

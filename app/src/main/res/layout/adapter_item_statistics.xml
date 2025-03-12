@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mudrichenko.evgeniy.selfstudy.ui.adapter.statistics.StatisticsAdapterItemVM" />
+            type="com.mudrichenkoevgeny.selfstudy.ui.adapter.statistics.StatisticsAdapterItemVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +44,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/padding_items"/>
 
-        <com.mudrichenko.evgeniy.selfstudy.ui.custom_view.pie_chart.PieChartView
+        <com.mudrichenkoevgeny.selfstudy.ui.custom_view.pie_chart.PieChartView
             android:id="@+id/pie_chart_view"
             android:layout_width="@dimen/circle_button_small_size"
             android:layout_height="@dimen/circle_button_small_size"

@@ -15,7 +15,7 @@
 
     <dialog
         android:id="@+id/editQuestionDialog"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.edit_question.EditQuestionBottomSheetDialog"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.bottom_sheet_dialog.edit_question.EditQuestionBottomSheetDialog"
         tools:layout="@layout/dialog_edit_question">
         <argument
             android:name="quizPackId"
@@ -31,7 +31,7 @@
 
     <dialog
         android:id="@+id/questionStatisticsDialog"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.question_statistics.QuestionStatisticsBottomSheetDialog"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.bottom_sheet_dialog.question_statistics.QuestionStatisticsBottomSheetDialog"
         tools:layout="@layout/dialog_question_statistics">
         <argument
             android:name="questionId"
@@ -44,7 +44,7 @@
 
     <dialog
         android:id="@+id/confirmationDialog"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.alert_dialog.alert.AlertDialog"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.alert_dialog.alert.AlertDialog"
         tools:layout="@layout/dialog_alert">
         <argument
             android:name="titleText"
@@ -75,7 +75,7 @@
 
     <dialog
         android:id="@+id/textInputDialog"
-        android:name="com.mudrichenko.evgeniy.selfstudy.ui.bottom_sheet_dialog.text_input.TextInputBottomSheetDialog"
+        android:name="com.mudrichenkoevgeny.selfstudy.ui.bottom_sheet_dialog.text_input.TextInputBottomSheetDialog"
         tools:layout="@layout/dialog_text_input">
         <argument
             android:name="titleText"
