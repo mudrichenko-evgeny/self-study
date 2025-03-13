@@ -10,8 +10,8 @@ object ApplicationConfig {
     }
 
     object Version {
-        const val code = 1
-        const val number = "1.0"
+        const val code = 2
+        const val number = "1.1"
     }
 
 }

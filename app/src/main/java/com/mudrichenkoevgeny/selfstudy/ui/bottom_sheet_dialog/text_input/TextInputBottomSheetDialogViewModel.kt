@@ -28,7 +28,7 @@ class TextInputBottomSheetDialogViewModel @Inject constructor() : BaseBottomShee
     fun setContent(
         titleText: String?,
         textContent: String?,
-        contentCanBeEmpty: Boolean?,
+        contentCanBeEmpty: Boolean,
         hintText: String?,
         confirmButtonText: String?,
         extraData: String?

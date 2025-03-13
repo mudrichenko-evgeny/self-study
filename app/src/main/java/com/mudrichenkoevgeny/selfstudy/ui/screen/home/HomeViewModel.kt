@@ -82,12 +82,12 @@ class HomeViewModel @Inject constructor(
     private fun collectActiveQuizPack() {
         viewModelScope.launch {
             quizPacksRepository.getActiveQuizPackFlow().collect { quizPack ->
-                quizPackReceived(quizPack)
+                quizPack?.let { quizPackReceived(quizPack) }
             }
         }
     }
 
-    private fun quizPackReceived(quizPack: QuizPack?) {
+    private fun quizPackReceived(quizPack: QuizPack) {
         _quizPack.value = quizPack
         collectData()
     }
