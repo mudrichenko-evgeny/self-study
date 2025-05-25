@@ -1,6 +1,5 @@
 package com.mudrichenkoevgeny.selfstudy.domain.quiz_use_case
 
-import android.util.Log
 import com.mudrichenkoevgeny.selfstudy.data.UniqueEvent
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.AppError
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.DataResponse
@@ -10,6 +9,7 @@ import com.mudrichenkoevgeny.selfstudy.domain.file_repository.FileRepository
 import com.mudrichenkoevgeny.selfstudy.domain.quiz_packs_repository.QuizPacksRepository
 import com.mudrichenkoevgeny.selfstudy.domain.quiz_repository.QuizRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
+import java.io.File
 
 class QuizUseCaseImpl(
     private val fileRepository: FileRepository,
@@ -50,20 +50,38 @@ class QuizUseCaseImpl(
     }
 
     private suspend fun createPacksFromAsset() {
-        val packFileNameList: List<String> = fileRepository.getDefaultQuizPackNames()
-        val packsToCreateResponse: DataResponse<List<String>> =
-            quizPacksRepository.getPacksToCreate(packFileNameList)
-        if (packsToCreateResponse is DataResponse.Successful) {
-            val successfullyCreatedPacks: MutableList<String> = mutableListOf()
-            packsToCreateResponse.data.map { packFileName ->
-                fileRepository.createQuizPackFromAssets(
-                    fileName = packFileName
-                )?.let {
-                    successfullyCreatedPacks.add(packFileName)
+        val quizPacksNames: List<String> = fileRepository.getQuizPacksNamesFromAssets()
+
+        val quizPackFiles = quizPacksNames.map { name ->
+            fileRepository.cacheQuizPackFromAssets(
+                fileName = name
+            )
+        }.filterNotNull()
+
+        val quizPacksFromDatabase = quizPacksRepository.getDefaultQuizPacks()
+        quizPackFiles.forEach { quizPackFile ->
+            val quizWithSameNameInDatabase = quizPacksFromDatabase
+                .find { it.fileName == quizPackFile.name }
+            if (quizWithSameNameInDatabase != null) {
+                val quizPackFileMD5 = fileRepository.getFileMD5(quizPackFile)
+                if (quizWithSameNameInDatabase.fileMD5 != quizPackFileMD5) {
+                    deleteQuiz(quizWithSameNameInDatabase)
+                    saveQuizPack(quizPackFile, quizPackFileMD5)
                 }
+            } else {
+                saveQuizPack(quizPackFile)
             }
-            quizPacksRepository.saveAssetQuizPacks(successfullyCreatedPacks)
         }
+    }
+
+    private suspend fun saveQuizPack(quizPackFile: File, fileMd5: String? = null) {
+        val savedQuizPackFile = fileRepository.saveQuizPackFromAssets(quizPackFile) ?: return
+        quizPacksRepository.saveQuizPack(
+            packName = savedQuizPackFile.name.replace(".csv", ""),
+            packFileName = savedQuizPackFile.name,
+            isUserPack = false,
+            packFileMD5 = fileMd5 ?: fileRepository.getFileMD5(savedQuizPackFile)
+        )
     }
 
     private suspend fun checkQuizPack() {
@@ -182,7 +200,6 @@ class QuizUseCaseImpl(
         numberOfQuestion: Int,
         prioritizeDifficultQuestions: Boolean
     ): DataResponse<List<QuizQuestion>> {
-        Log.d("HOME_LOGS", "prioritizeDifficultQuestions = $prioritizeDifficultQuestions")
         deleteAudioRecords()
         return quizRepository.createQuiz(
             numberOfQuestions = numberOfQuestion,

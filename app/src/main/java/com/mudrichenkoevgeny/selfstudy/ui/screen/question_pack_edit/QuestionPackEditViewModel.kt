@@ -1,6 +1,5 @@
 package com.mudrichenkoevgeny.selfstudy.ui.screen.question_pack_edit
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -14,7 +13,6 @@ import com.mudrichenkoevgeny.selfstudy.ui.adapter.question.QuestionAdapterListen
 import com.mudrichenkoevgeny.selfstudy.ui.base.fragment.BaseFragmentViewModel
 import com.mudrichenkoevgeny.selfstudy.ui.base.fragment.NavigationCommand
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -107,7 +105,6 @@ class QuestionPackEditViewModel @Inject constructor(
     }
 
     fun onPackNameChanged(packName: String?) {
-        Log.d("DIALOG_LOGS", "onPackNameChanged: $packName")
         packName?.let { name ->
             viewModelScope.launch {
                 quizPacksRepository.renameActiveQuizPack(name).let { renamePackResponse ->

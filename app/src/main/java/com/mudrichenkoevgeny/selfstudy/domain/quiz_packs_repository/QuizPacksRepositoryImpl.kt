@@ -6,17 +6,13 @@ import com.mudrichenkoevgeny.selfstudy.data.model.`object`.DataResponse
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.QuizPack
 import com.mudrichenkoevgeny.selfstudy.data.model.converter.toModel
 import com.mudrichenkoevgeny.selfstudy.data.model.entity.QuizPackEntity
+import com.mudrichenkoevgeny.selfstudy.data.model.`object`.PackFileData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class QuizPacksRepositoryImpl(
     private val quizPacksDao: QuizPacksDao
 ): QuizPacksRepository {
-
-    private val assetPackNamesList: Map<String, String> = mapOf(
-        Pair("general_knowledge_en.csv", "General Knowledge"),
-        Pair("tongue_twisters_en.csv", "Tongue Twisters")
-    )
 
     override suspend fun syncData() {
         syncQuizPacksData()
@@ -61,45 +57,21 @@ class QuizPacksRepositoryImpl(
         return quizPacksDao.getByActive(true).firstOrNull()?.toModel()
     }
 
-    override suspend fun getPacksToCreate(fileNames: List<String>): DataResponse<List<String>> {
-        val packsToCreate: MutableList<String> = mutableListOf()
-        val quizPacksList: List<QuizPackEntity> = quizPacksDao.getAll()
-        fileNames.map { fileName ->
-            assetPackNamesList[fileName]?.let { packName ->
-                val quizPack = quizPacksList.find { quizPack -> quizPack.name == packName }
-                if (quizPack == null) {
-                    packsToCreate.add(fileName)
-                }
-            }
-        }
-        return DataResponse.Successful(packsToCreate)
+    override suspend fun getDefaultQuizPacks(): List<QuizPack> {
+        return quizPacksDao.getByIsUserPack(false).map { it.toModel() }
     }
 
-    override suspend fun saveAssetQuizPacks(packFileNames: List<String>) {
-        val quizPacksFromDatabase = quizPacksDao.getByIsUserPack(false)
-        packFileNames.map { packFileName ->
-            val quizPackFromDatabase = quizPacksFromDatabase.find { it.fileName == packFileName }
-            if (quizPackFromDatabase == null) {
-                quizPacksDao.insert(
-                    QuizPackEntity().apply {
-                        this.name = assetPackNamesList[packFileName]
-                            ?: packFileName.replace(".csv", "")
-                        this.fileName = packFileName
-                        this.isUserPack = false
-                        this.isActive = false
-                    }
-                )
-                syncQuizPacksData()
-            }
-        }
-    }
-
-    override suspend fun saveQuizPack(packName: String, packFileName: String): DataResponse<Long> {
+    override suspend fun saveQuizPack(
+        packName: String,
+        packFileName: String,
+        isUserPack: Boolean,
+        packFileMD5: String
+    ): DataResponse<Long> {
         val packId = quizPacksDao.insert(
             QuizPackEntity().apply {
                 this.name = packName
                 this.fileName = packFileName
-                this.isUserPack = true
+                this.isUserPack = isUserPack
                 this.isActive = false
             }
         )

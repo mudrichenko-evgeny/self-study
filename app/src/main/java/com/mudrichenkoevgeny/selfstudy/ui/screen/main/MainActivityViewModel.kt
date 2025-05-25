@@ -1,6 +1,5 @@
 package com.mudrichenkoevgeny.selfstudy.ui.screen.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -38,7 +37,6 @@ class MainActivityViewModel @Inject constructor(
     }
 
     private fun appInitialization() {
-        Log.d("LIFE_LOGS", "appInitialization")
         viewModelScope.launch {
             quizRepository.syncData()
             quizPacksRepository.syncData()

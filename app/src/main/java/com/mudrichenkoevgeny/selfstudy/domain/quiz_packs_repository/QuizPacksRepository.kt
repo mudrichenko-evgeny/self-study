@@ -10,10 +10,13 @@ interface QuizPacksRepository {
     suspend fun getQuizPacksListFlow(): Flow<DataResponse<List<QuizPack>>>
     suspend fun getActiveQuizPackFlow(): Flow<QuizPack?>
     suspend fun getActiveQuizPack(): QuizPack?
-
-    suspend fun getPacksToCreate(fileNames: List<String>): DataResponse<List<String>>
-    suspend fun saveAssetQuizPacks(packFileNames: List<String>)
-    suspend fun saveQuizPack(packName: String, packFileName: String): DataResponse<Long>
+    suspend fun getDefaultQuizPacks(): List<QuizPack>
+    suspend fun saveQuizPack(
+        packName: String,
+        packFileName: String,
+        isUserPack: Boolean,
+        packFileMD5: String
+    ): DataResponse<Long>
     suspend fun deleteQuizPack(quizPack: QuizPack): DataResponse<Unit>
     suspend fun getAnyQuizPack(): DataResponse<QuizPack>
 

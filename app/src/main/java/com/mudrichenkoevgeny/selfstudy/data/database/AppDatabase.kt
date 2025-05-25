@@ -26,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         const val DB_NAME = "database"
-        const val DB_VERSION = 1
+        const val DB_VERSION = 2
     }
 
     abstract fun questionDao(): QuestionDao

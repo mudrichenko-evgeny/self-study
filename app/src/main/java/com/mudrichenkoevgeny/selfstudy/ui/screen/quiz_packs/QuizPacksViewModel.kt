@@ -1,7 +1,6 @@
 package com.mudrichenkoevgeny.selfstudy.ui.screen.quiz_packs
 
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -151,7 +150,6 @@ class QuizPacksViewModel @Inject constructor(
 
     private fun onPackFileCreated(file: File?) {
         this.pickedFile = file
-        Log.d("FILE_LOGS", "file.path = ${file?.path}")
         file?.let { _showPackCreateConfirmationEvent.value = SingleLiveEvent(file.path) }
     }
 
@@ -200,7 +198,9 @@ class QuizPacksViewModel @Inject constructor(
             deletePackTempFile(file.path)
             quizPacksRepository.saveQuizPack(
                 packName = packName,
-                packFileName = file.name
+                packFileName = file.name,
+                isUserPack = true,
+                packFileMD5 = fileRepository.getFileMD5(file)
             )
         }
     }

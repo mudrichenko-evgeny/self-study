@@ -17,6 +17,9 @@ class QuizPackEntity {
     @ColumnInfo(name = FILE_NAME)
     var fileName: String = ""
 
+    @ColumnInfo(name = FILE_MD5)
+    var fileMD5: String = ""
+
     @ColumnInfo(name = IS_USER_PACK)
     var isUserPack: Boolean = false
 
@@ -29,6 +32,7 @@ class QuizPackEntity {
         const val ID = "id"
         const val NAME = "name"
         const val FILE_NAME = "fileName"
+        const val FILE_MD5 = "fileMD5"
         const val IS_USER_PACK = "isUserPack"
         const val IS_ACTIVE = "isActive"
 
@@ -36,6 +40,7 @@ class QuizPackEntity {
                 "`${ID}` INTEGER NOT NULL," +
                 " `${NAME}` TEXT NOT NULL," +
                 " `${FILE_NAME}` TEXT NOT NULL," +
+                " `${FILE_MD5}` TEXT NOT NULL," +
                 " `${IS_USER_PACK}` INTEGER NOT NULL," +
                 " `${IS_ACTIVE}` INTEGER NOT NULL," +
                 " PRIMARY KEY(`${ID}`))"

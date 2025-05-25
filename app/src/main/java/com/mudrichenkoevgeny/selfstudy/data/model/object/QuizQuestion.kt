@@ -31,7 +31,8 @@ data class QuizQuestion(
     }
 
     fun hasAnswer(): Boolean {
-        return userAnswerText?.isNotEmpty() == true || hasAudioRecord
+        return true // temporary
+//        return userAnswerText?.isNotEmpty() == true || hasAudioRecord
     }
 
     fun getAudioRecordName(): String {

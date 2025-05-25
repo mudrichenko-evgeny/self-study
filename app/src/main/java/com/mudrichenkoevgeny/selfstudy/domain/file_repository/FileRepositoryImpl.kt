@@ -10,6 +10,8 @@ import com.mudrichenkoevgeny.selfstudy.data.model.`object`.AppError
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.DataResponse
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.QuizPack
 import java.io.*
+import java.math.BigInteger
+import java.security.MessageDigest
 import kotlin.Exception
 
 @Suppress("SameParameterValue")
@@ -99,11 +101,11 @@ class FileRepositoryImpl(
         return name
     }
 
-    override fun getDefaultQuizPackNames(): List<String> {
-        return getFileNamesFromAssets(DIRECTORY_ASSET_QUIZ_PACKS)
+    override fun getQuizPacksNamesFromAssets(): List<String> {
+        return getFileNamesFromAssetsDirectory(DIRECTORY_ASSET_QUIZ_PACKS)
     }
 
-    private fun getFileNamesFromAssets(directory: String?): List<String> {
+    private fun getFileNamesFromAssetsDirectory(directory: String?): List<String> {
         return try {
             getAssets().list(directory ?: "")?.toList() ?: emptyList()
         } catch (e: Exception) {
@@ -112,15 +114,56 @@ class FileRepositoryImpl(
         }
     }
 
-    override fun createQuizPackFromAssets(
+    override fun cacheQuizPackFromAssets(
         fileName: String
     ): File? {
         return createFileFromAssets(
             directory = DIRECTORY_ASSET_QUIZ_PACKS,
             fileName = fileName,
-            outDirectory = DIRECTORY_DEFAULT_QUIZ_PACKS,
+            outDirectory = null,
             outFileName = null
         )
+    }
+
+    override fun saveQuizPackFromAssets(file: File): File? {
+        val targetFile = File(
+            getDirectory("${getDataDirectory()}/$DIRECTORY_DEFAULT_QUIZ_PACKS"),
+            file.name
+        )
+
+        return try {
+            targetFile.parentFile?.mkdirs()
+
+            file.copyTo(targetFile, overwrite = true)
+
+            if (!file.delete()) {
+                throw IOException("Can`t delete file: ${file.absolutePath}")
+            }
+
+            targetFile
+        } catch (e: IOException) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    override fun getFileMD5(file: File): String {
+        val md = MessageDigest.getInstance("MD5")
+        val buffer = ByteArray(8192)
+        val inputStream = file.inputStream()
+
+        try {
+            var bytesRead: Int
+            while (inputStream.read(buffer).also { bytesRead = it } != -1) {
+                md.update(buffer, 0, bytesRead)
+            }
+        } finally {
+            inputStream.close()
+        }
+
+        val digest = md.digest()
+        val bigInt = BigInteger(1, digest)
+        return bigInt.toString(16).padStart(32, '0')
     }
 
     private fun createFileFromAssets(
@@ -169,7 +212,23 @@ class FileRepositoryImpl(
     }
 
     override fun getRowsFromCsvFile(file: File): List<Map<String, String>> {
-        return csvReader().readAllWithHeader(file)
+        val delimiters = listOf(',', ';')
+
+        for (delimiter in delimiters) {
+            try {
+                return readCsvWithDelimiter(file, delimiter)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        return emptyList()
+    }
+
+    private fun readCsvWithDelimiter(file: File, delimiterChar: Char): List<Map<String, String>> {
+        return csvReader {
+            delimiter = delimiterChar
+        }.readAllWithHeader(file)
     }
 
     override fun saveRowsIntoCsv(file: File?, rows: List<List<String>>): DataResponse<Unit> {

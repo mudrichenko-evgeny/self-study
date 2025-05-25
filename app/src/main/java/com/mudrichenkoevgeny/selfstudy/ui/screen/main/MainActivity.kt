@@ -1,7 +1,6 @@
 package com.mudrichenkoevgeny.selfstudy.ui.screen.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -38,13 +37,11 @@ class MainActivity: BaseActivity<ActivityMainBinding, MainActivityViewModel>() {
             onResetQuizEventReceived()
         }
         lifecycleScope.launchWhenCreated {
-            Log.d("LIFE_LOGS", "MainActivity: launchWhenCreated")
             viewModel.observeToResetQuizFlow()
         }
     }
 
     private fun onResetQuizEventReceived() {
-        Log.d("LIFE_LOGS", "MainActivity: onResetQuizEventReceived")
         navController?.let { navController ->
             navController.findDestination(R.id.nav_graph_home)?.let { homeDestination ->
                 navController.currentDestination?.let { currentDestination ->
@@ -75,7 +72,6 @@ class MainActivity: BaseActivity<ActivityMainBinding, MainActivityViewModel>() {
                 }
             }
             navController.addOnDestinationChangedListener { controller, destination, _ ->
-                Log.d("LIFE_LOGS", "MainActivity: addOnDestinationChangedListener resetHomeGraph = ${viewModel.resetHomeGraph}")
                 if (destination.parent?.id == R.id.nav_graph_home && viewModel.resetHomeGraph) {
                     viewModel.resetHomeGraph = false
                     resetHomeGraph(controller)
@@ -109,7 +105,6 @@ class MainActivity: BaseActivity<ActivityMainBinding, MainActivityViewModel>() {
     }
 
     private fun resetHomeGraph(navController: NavController) {
-        Log.d("LIFE_LOGS", "MainActivity: resetHomeGraph")
         navController.popBackStack(
             destinationId = R.id.homeFragment,
             inclusive = false,

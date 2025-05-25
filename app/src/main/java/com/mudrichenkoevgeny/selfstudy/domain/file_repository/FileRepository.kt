@@ -2,6 +2,7 @@ package com.mudrichenkoevgeny.selfstudy.domain.file_repository
 
 import android.net.Uri
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.DataResponse
+import com.mudrichenkoevgeny.selfstudy.data.model.`object`.PackFileData
 import com.mudrichenkoevgeny.selfstudy.data.model.`object`.QuizPack
 import java.io.File
 
@@ -11,8 +12,10 @@ interface FileRepository {
     fun deleteDirectory(pathName: String)
 
     fun convertContentUriToFile(uri: Uri?): File?
-    fun getDefaultQuizPackNames(): List<String>
-    fun createQuizPackFromAssets(fileName: String): File?
+    fun getQuizPacksNamesFromAssets(): List<String>
+    fun cacheQuizPackFromAssets(fileName: String): File?
+    fun saveQuizPackFromAssets(file: File): File?
+    fun getFileMD5(file: File): String
 
     fun getRowsFromCsvFile(file: File): List<Map<String, String>>
     fun saveRowsIntoCsv(file: File?, rows: List<List<String>>): DataResponse<Unit>

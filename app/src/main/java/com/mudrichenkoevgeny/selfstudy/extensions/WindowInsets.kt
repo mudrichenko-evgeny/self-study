@@ -1,6 +1,5 @@
 package com.mudrichenkoevgeny.selfstudy.extensions
 
-import android.util.Log
 import android.view.*
 import androidx.core.view.updatePadding
 

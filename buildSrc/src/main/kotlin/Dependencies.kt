@@ -25,7 +25,7 @@ object Dependencies {
     }
 
     object Other {
-        const val csv = "com.github.doyaaaaaken:kotlin-csv-jvm:${Versions.csv}"
+        const val csv = "com.jsoizo:kotlin-csv-jvm:${Versions.csv}"
     }
 
     object Test {
@@ -49,7 +49,7 @@ object Dependencies {
         const val gson = "2.9.0"
         const val exoPlayer = "2.18.1"
         // Other
-        const val csv = "1.3.0"
+        const val csv = "1.10.0"
         // Test
         const val junit = "4.13.2"
         const val junitExt = "1.1.3"
