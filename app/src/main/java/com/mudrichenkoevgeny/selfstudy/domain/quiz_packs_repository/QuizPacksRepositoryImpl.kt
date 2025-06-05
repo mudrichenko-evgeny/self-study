@@ -71,6 +71,7 @@ class QuizPacksRepositoryImpl(
             QuizPackEntity().apply {
                 this.name = packName
                 this.fileName = packFileName
+                this.fileMD5 = packFileMD5
                 this.isUserPack = isUserPack
                 this.isActive = false
             }

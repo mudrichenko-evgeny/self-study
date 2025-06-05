@@ -38,9 +38,9 @@ class MainActivityViewModel @Inject constructor(
 
     private fun appInitialization() {
         viewModelScope.launch {
+            quizUseCase.checkPacks()
             quizRepository.syncData()
             quizPacksRepository.syncData()
-            quizUseCase.checkPacks()
             onAppInitializationComplete()
         }
     }

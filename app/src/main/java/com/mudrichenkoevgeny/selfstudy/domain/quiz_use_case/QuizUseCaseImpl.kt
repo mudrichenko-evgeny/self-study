@@ -72,6 +72,12 @@ class QuizUseCaseImpl(
                 saveQuizPack(quizPackFile)
             }
         }
+
+        if (quizPacksRepository.getActiveQuizPack() == null) {
+            quizPacksRepository.getDefaultQuizPacks().firstOrNull()?.let { quizPack ->
+                setActiveQuiz(quizPack)
+            }
+        }
     }
 
     private suspend fun saveQuizPack(quizPackFile: File, fileMd5: String? = null) {
