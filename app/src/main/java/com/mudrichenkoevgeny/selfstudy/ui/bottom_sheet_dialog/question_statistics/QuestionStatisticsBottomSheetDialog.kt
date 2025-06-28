@@ -11,6 +11,7 @@ import com.mudrichenkoevgeny.selfstudy.R
 import com.mudrichenkoevgeny.selfstudy.databinding.DialogQuestionStatisticsBinding
 import com.mudrichenkoevgeny.selfstudy.extensions.addOnDrawFinishedListener
 import com.mudrichenkoevgeny.selfstudy.extensions.getHeightForAllViewWithExclude
+import com.mudrichenkoevgeny.selfstudy.extensions.getVerticalMarginsForAllViews
 import com.mudrichenkoevgeny.selfstudy.ui.base.bottom_sheet_dialog.BaseBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,9 +48,11 @@ class QuestionStatisticsBottomSheetDialog:
 
     override fun onContentMaxHeightChanged(contentMaxHeight: Int) {
         super.onContentMaxHeightChanged(contentMaxHeight)
-        val scrollMaxHeight = contentMaxHeight - binding.mainLayout.getHeightForAllViewWithExclude(
-            listOf(binding.contentScrollView.id)
-        )
+        val scrollMaxHeight = contentMaxHeight -
+                binding.mainLayout.getHeightForAllViewWithExclude(
+                    listOf(binding.contentScrollView.id)
+                ) -
+                binding.mainLayout.getVerticalMarginsForAllViews()
         binding.contentScrollView.addOnDrawFinishedListener {
             if (binding.contentScrollView.height > scrollMaxHeight) {
                 (binding.contentScrollView.layoutParams as ConstraintLayout.LayoutParams).let { layoutParams ->

@@ -24,6 +24,9 @@ class QuestionEntity {
     var correctCount: Int = 0
 
     fun getCorrectPercent(): Float {
+        if (attemptCount < 1) {
+            return 0f
+        }
         return correctCount.toFloat()/attemptCount.toFloat()
     }
 

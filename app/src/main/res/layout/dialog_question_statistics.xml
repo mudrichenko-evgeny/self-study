@@ -14,42 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="@dimen/padding_screen"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/padding_screen"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/padding_screen"/>
-
         <com.mudrichenkoevgeny.selfstudy.ui.custom_view.app_scroll_view.AppScrollView
             android:id="@+id/content_scroll_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/guideline_top"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/statistics_text_view"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintEnd_toEndOf="@+id/guideline_end">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/padding_screen"
+            android:layout_marginHorizontal="@dimen/padding_screen">
 
             <TextView
                 android:id="@+id/content_text_view"
@@ -66,8 +40,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/content_scroll_view"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+            app:layout_constraintBottom_toTopOf="@+id/close_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/padding_items"
             style="@style/TextPrimaryCenter"
             android:text="@{viewModel.question.getStatisticText()}"
@@ -78,10 +53,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/statistics_text_view"
-            app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/padding_items"
+            android:layout_marginBottom="@dimen/padding_screen"
+            android:layout_marginHorizontal="@dimen/padding_screen"
             style="@style/ButtonRectangle"
             android:text="@string/close" />
 

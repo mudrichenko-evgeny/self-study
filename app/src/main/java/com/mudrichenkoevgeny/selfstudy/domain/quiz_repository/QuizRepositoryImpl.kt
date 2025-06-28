@@ -46,16 +46,16 @@ class QuizRepositoryImpl(
         val questionEntityList = questionDao.getAll().let { questionEntityList ->
 
             val sortedQuestionEntityList = if (prioritizeDifficultQuestions)
-                questionEntityList.sortedByDescending { it.getCorrectPercent() }
+                questionEntityList.sortedBy { it.getCorrectPercent() }
             else
                 questionEntityList
 
-            sortedQuestionEntityList.shuffled().take(
+            sortedQuestionEntityList.take(
                 if (numberOfQuestions > 0)
                     numberOfQuestions
                 else
                     sortedQuestionEntityList.size
-            )
+            ).shuffled()
         }
 
         val questionList: List<Question> = questionEntityList
@@ -73,6 +73,7 @@ class QuizRepositoryImpl(
                 hasAudioRecord = false
             )
         }
+
         saveQuizQuestionData(quizQuestionList)
 
         return if (quizQuestionList.isNotEmpty())

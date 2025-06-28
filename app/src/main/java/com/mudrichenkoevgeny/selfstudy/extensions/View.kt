@@ -70,6 +70,17 @@ fun ViewGroup.getHeightForAllViewWithExclude(excludedViewIds: List<Int>): Int {
     return height
 }
 
+fun ViewGroup.getVerticalMarginsForAllViews(): Int {
+    var margin = 0
+    forEach { childView ->
+        val layoutParams = childView.layoutParams
+        if (layoutParams is ViewGroup.MarginLayoutParams) {
+            margin += layoutParams.topMargin + layoutParams.bottomMargin
+        }
+    }
+    return margin
+}
+
 fun View.disableParentScroll() {
     setOnTouchListener { view, motionEvent ->
         view.parent.requestDisallowInterceptTouchEvent(true)
